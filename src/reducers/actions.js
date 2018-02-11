@@ -1,1 +1,1 @@
-export const FL_POPULATION = 'FL_POPULATION'
+export const USA_POPULATION = 'USA_POPULATION'

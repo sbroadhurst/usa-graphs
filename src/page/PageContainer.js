@@ -1,18 +1,18 @@
 import { connect } from 'react-redux'
 import Page from './Page'
 
-import { setFLPopulation } from '../reducers/population'
+import { setUSAPopulation } from '../reducers/population'
 
 const mapStatetoProps = state => {
   return {
-    flpopulation: state.population.flpopulation
+    USApopulation: state.population.USApopulation
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    setFLPopulation: pop => {
-      dispatch(setFLPopulation(pop))
+    setUSAPopulation: pop => {
+      dispatch(setUSAPopulation(pop))
     }
   }
 }

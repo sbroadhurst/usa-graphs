@@ -1,33 +1,33 @@
 import React from 'react'
+import ChartsMap from '../components/ChartsMap'
 
 class Page extends React.Component {
-  constructor(props) {
-    super(props)
-
-    console.log(this)
-  }
-
-  getFlData() {
+  getUSAData() {
     fetch(
-      'https://api.opendatanetwork.com/data/v1/values?app_token=cQovpGcdUT1CSzgYk0KPYdAI0&describe=true&forecast=5&format=google&variable=demographics.population.count&entity_id=0400000US12'
+      'https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=state:*'
     )
       .then(res => {
         return res.json()
       })
       .then(res => {
-        this.props.setFLPopulation(res)
+        this.props.setUSAPopulation(res)
         console.log(res)
       })
   }
 
   componentWillMount() {
-    this.getFlData()
+    this.getUSAData()
   }
 
   render() {
-    const { flpopulation } = this.props
-    console.log('hello in render')
-    return <p> hey </p>
+    const { USApopulation } = this.props
+
+    return (
+      <div>
+        {' '}
+        <ChartsMap states={USApopulation} />
+      </div>
+    )
   }
 }
 
