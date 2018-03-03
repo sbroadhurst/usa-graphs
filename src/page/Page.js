@@ -10,8 +10,19 @@ class Page extends React.Component {
         return res.json()
       })
       .then(res => {
-        this.props.setUSAPopulation(res)
-        console.log(res)
+        let stateNames = res.map(value => {
+          return value[1]
+        })
+        let statePop = res.map(value => {
+          return value[0]
+        })
+        stateNames = stateNames.slice(1)
+        statePop = statePop.slice(1)
+        //console.log(stateNames, statePop)
+        this.props.setUSAPopulation({
+          stateNames: stateNames,
+          statePop: statePop
+        })
       })
   }
 
@@ -20,12 +31,13 @@ class Page extends React.Component {
   }
 
   render() {
-    const { USApopulation } = this.props
+    // console.log(this.props.stateNames)
+    const { statePop, stateNames } = this.props
 
     return (
       <div>
         {' '}
-        <ChartsMap states={USApopulation} />
+        <ChartsMap stateNames={stateNames} statePop={statePop} />
       </div>
     )
   }

@@ -3,7 +3,7 @@ import * as action from './actions'
 export const setUSAPopulation = census => {
   return {
     type: action.USA_POPULATION,
-    payload: { USApopulation: census }
+    payload: { stateNames: census.stateNames, statePop: census.statePop }
   }
 }
 
@@ -14,7 +14,8 @@ const ACTION_HANDLERS = {
 }
 
 let defaultState = {
-  USApopulation: []
+  stateNames: [],
+  statePop: []
 }
 
 export const reducer = (state = defaultState, action) => {

@@ -4,8 +4,10 @@ import Page from './Page'
 import { setUSAPopulation } from '../reducers/population'
 
 const mapStatetoProps = state => {
+  // console.log('state', state)
   return {
-    USApopulation: state.population.USApopulation
+    stateNames: state.population.stateNames,
+    statePop: state.population.statePop
   }
 }
 
